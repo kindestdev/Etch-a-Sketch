@@ -1,15 +1,22 @@
 body{
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
 }
 .container{
     display: flex;
     margin: 0 auto;
-    width: 480px;
-}
+    width: 80%;}
 
+.rows{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+}
 .cells{
-    width: calc(480px/16);
-    height: calc(480px/16);
+    width: 100%;
+    min-height: calc(480px/16);
     border: 1px solid #000;
 }
 
@@ -20,7 +27,22 @@ body{
     background-color: aqua;
 }
 .btn{
-    height: 50px;
+    height: 30px;
     width: 100px;
     align-self: center;
+}
+.gridBtn{
+    height: 30px;
+    width: 100px;
+    align-self: center;
+}
+.btnContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 10px;
+}
+button {
+    border-radius: 10px;
 }

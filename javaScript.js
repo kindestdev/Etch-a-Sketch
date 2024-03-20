@@ -1,11 +1,74 @@
 // Big Container
 const container = document.querySelector('.container');
+const btnContainer = document.createElement('div')
+btnContainer.classList.add('btnContainer');
+document.body.appendChild(btnContainer)
 
-for (let i = 0 ; i < 16 ; i++){
+let gridNum = 16;
+ 
+
+//buttons
+//resetButton
+const resetButton = document.createElement('button')
+resetButton.classList.add('btn')
+resetButton.textContent = 'Erase'
+resetButton.addEventListener('click', () => {
+    resetColors();
+});
+function resetColors(){
+    const cells = document.querySelectorAll('.cells');
+    cells.forEach(cell => {
+        cell.classList.remove('clicked')
+    })
+}
+btnContainer.appendChild(resetButton)
+
+
+//GridButton
+const gridButton = document.createElement('button');
+gridButton.classList.add('gridBtn')
+gridButton.textContent = 'Grid';
+btnContainer.appendChild(gridButton)
+
+//bychatgpt
+gridButton.addEventListener('click', ()=> {
+    const inputValue = prompt('Enter the desired grid size (0-100)');
+    const newSize = parseInt(inputValue);
+    if(newSize >= 1 && newSize <= 100){
+        gridNum = newSize;
+        resetGrid();
+    }else {
+        alert('Please enter a number between 1 and 100.');
+    }
+})
+
+function resetGrid(){
+    container.innerHTML = '';
+
+    for(let i = 0; i < gridNum; i++){
+        const rows = document.createElement ('div');
+        rows.classList.add('rows');
+
+        for(let l = 0 ; l < gridNum ; l++){
+            const cells = document.createElement('div');
+            cells.classList.add('cells');
+            rows.appendChild(cells);
+
+            cells.addEventListener('mousedown', ()=> {
+                cells.classList.add('clicked');
+            });
+        }
+        container.appendChild(rows)
+    }
+};
+
+
+
+for (let i = 0 ; i < gridNum ; i++){
     const rows = document.createElement('div');
     rows.classList.add('rows');
 
-    for ( let l = 0 ; l < 16 ; l++){
+    for ( let l = 0 ; l < gridNum ; l++){
         const cells = document.createElement('div');
         cells.classList.add('cells');
         rows.appendChild(cells)
@@ -17,13 +80,12 @@ for (let i = 0 ; i < 16 ; i++){
     container.appendChild(rows);
 }
 
-const resetButton = document.createElement('button')
-resetButton.classList.add('btn')
-resetButton.textContent = ('Reset')
-resetButton.addEventListener('click', () => {
-    location.reload();
-})
-document.body.appendChild(resetButton)
+
+
+
+
+
+
 
 
 //colorear cuando dejo el click presionado.
