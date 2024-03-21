@@ -28,9 +28,7 @@ colorWhite.addEventListener('click', ()=>{
 
 
 //resetButton
-const resetButton = document.createElement('button')
-resetButton.classList.add('btn')
-resetButton.textContent = 'Erase All'
+const resetButton = document.querySelector('#eraseBtn')
 resetButton.addEventListener('click', () => {
     resetColors();
 });
@@ -40,14 +38,10 @@ function resetColors(){
         cell.style.backgroundColor = 'white'
     })
 }
-btnContainer.appendChild(resetButton)
 
 
 //GridButton
-const gridButton = document.createElement('button');
-gridButton.classList.add('gridBtn')
-gridButton.textContent = 'Grid';
-btnContainer.appendChild(gridButton)
+const gridButton = document.querySelector('#gridBtn');
 
 //gridSize button
 gridButton.addEventListener('click', ()=> {

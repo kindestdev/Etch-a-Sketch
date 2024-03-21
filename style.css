@@ -13,6 +13,10 @@ body{
     background-color: white;
     border-radius: 10px;
 }
+h1{
+    color: white;
+    align-self: center;
+}
 
 .rows{
     display: flex;
@@ -28,12 +32,6 @@ body{
 .btn{
     height: 30px;
     width: 100px;
-    align-self: center;
-}
-.gridBtn{
-    height: 30px;
-    width: 100px;
-    align-self: center;
 }
 .btnContainer{
     display: flex;
@@ -44,6 +42,19 @@ body{
 }
 button {
     border-radius: 10px;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 5px;
+}
+.tittle{
+    font-size: 60px;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 10px;
 }
 .footer {
     display: flex;
@@ -62,7 +73,7 @@ button {
 }
 .randomColor{
     background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 80%, rgba(228, 252, 70, 0.941) 100%);
 }
 .whiteColor{
     background: rgb(238,174,202);
