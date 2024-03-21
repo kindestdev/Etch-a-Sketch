@@ -5,20 +5,39 @@ btnContainer.classList.add('btnContainer');
 document.body.appendChild(btnContainer)
 
 let gridNum = 16;
- 
+
+
 
 //buttons
+
+//colors btn
+let penColor = 'black';
+let colorRandom = document.querySelector('.randomColor')
+colorRandom.addEventListener('click', ()=>{
+    penColor = 'random';
+})
+let colorBlack = document.querySelector('.blackColor')
+colorBlack.addEventListener('click', ()=>{
+    penColor ='black'
+})
+let colorWhite = document.querySelector('.whiteColor')
+colorWhite.addEventListener('click', ()=>{
+    penColor ='white'
+})
+
+
+
 //resetButton
 const resetButton = document.createElement('button')
 resetButton.classList.add('btn')
-resetButton.textContent = 'Erase'
+resetButton.textContent = 'Erase All'
 resetButton.addEventListener('click', () => {
     resetColors();
 });
 function resetColors(){
     const cells = document.querySelectorAll('.cells');
     cells.forEach(cell => {
-        cell.classList.remove('clicked')
+        cell.style.backgroundColor = 'white'
     })
 }
 btnContainer.appendChild(resetButton)
@@ -30,7 +49,7 @@ gridButton.classList.add('gridBtn')
 gridButton.textContent = 'Grid';
 btnContainer.appendChild(gridButton)
 
-//bychatgpt
+//gridSize button
 gridButton.addEventListener('click', ()=> {
     const inputValue = prompt('Enter the desired grid size (0-100)');
     const newSize = parseInt(inputValue);
@@ -54,10 +73,16 @@ function resetGrid(){
             cells.classList.add('cells');
             rows.appendChild(cells);
 
-            cells.addEventListener('mousedown', ()=> {
-                cells.classList.add('clicked');
-            });
-        }
+            cells.addEventListener('mouseover', () => {
+                if( penColor === 'black'){
+                 cells.style.backgroundColor = 'black';
+             }else if (penColor === 'white'){
+                 cells.style.backgroundColor = 'white';
+             }else if ( penColor === 'random'){
+                 cells.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+             }
+             })
+         }
         container.appendChild(rows)
     }
 };
@@ -73,59 +98,16 @@ for (let i = 0 ; i < gridNum ; i++){
         cells.classList.add('cells');
         rows.appendChild(cells)
 
-        cells.addEventListener('mousedown', () => {
-            cells.classList.add('clicked');
+        cells.addEventListener('mouseover', () => {
+           if( penColor === 'black'){
+            cells.style.backgroundColor = 'black';
+        }else if (penColor === 'white'){
+            cells.style.backgroundColor = 'white';
+        }else if ( penColor === 'random'){
+            cells.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+        }
         })
     }
     container.appendChild(rows);
 }
-
-
-
-
-
-
-
-
-
-//colorear cuando dejo el click presionado.
-let isMouseDown = false;
-
-// Function to handle mouse down event
-function handleMouseDown() {
-    isMouseDown = true;
-}
-
-// Function to handle mouse up event
-function handleMouseUp() {
-    isMouseDown = false;
-}
-
-// Function to handle mouse over event
-function handleMouseOver(e) {
-    if (isMouseDown) {
-        e.target.classList.add('clicked');
-    }
-}
-
-// Add event listeners to container
-container.addEventListener('mousedown', handleMouseDown);
-container.addEventListener('mouseup', handleMouseUp);
-container.addEventListener('mouseover', handleMouseOver);
-
-
-
-
-
-
-
-
-
-
-// const row1 = document.createElement('div');
-// row1.style.height = '30px'
-// row1.style.width = '30px'
-// row1.style.backgroundColor = 'black'
-// row1.style.border = '1px grey solid'
-// bigDiv.appendChild(row1);
 
