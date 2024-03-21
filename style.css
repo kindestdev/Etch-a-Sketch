@@ -45,7 +45,6 @@ button {
 }
 .header{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     gap: 50px;
     margin-bottom: 5px;
@@ -67,15 +66,12 @@ button {
     height: 50px;
 }
 .blackColor{
-    background: rgb(2,0,36);
     background: linear-gradient(236deg, rgba(2,0,36,1) 48%, rgba(150,150,150,1) 84%);
     color: white;
 }
 .randomColor{
-    background: rgb(63,94,251);
     background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 80%, rgba(228, 252, 70, 0.941) 100%);
 }
 .whiteColor{
-    background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(254,253,253,1) 100%);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(254,253,253,1) 100%);
 }

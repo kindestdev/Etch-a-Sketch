@@ -1,12 +1,7 @@
 // Big Container
 const container = document.querySelector('.container');
-const btnContainer = document.createElement('div')
-btnContainer.classList.add('btnContainer');
-document.body.appendChild(btnContainer)
 
 let gridNum = 16;
-
-
 
 //buttons
 
@@ -40,10 +35,9 @@ function resetColors(){
 }
 
 
-//GridButton
+//Grid size Button
 const gridButton = document.querySelector('#gridBtn');
 
-//gridSize button
 gridButton.addEventListener('click', ()=> {
     const inputValue = prompt('Enter the desired grid size (0-100)');
     const newSize = parseInt(inputValue);
@@ -56,7 +50,6 @@ gridButton.addEventListener('click', ()=> {
 })
 
 function resetGrid(){
-    container.innerHTML = '';
 
     for(let i = 0; i < gridNum; i++){
         const rows = document.createElement ('div');
